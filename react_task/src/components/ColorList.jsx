@@ -1,18 +1,18 @@
 import ColorListItem from './ColorListItem';
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
+import { capitalizeFirstLetter } from '../helpers';
 
-const ColorList = ({ colors }) => {
+const ColorList = () => {
+  const { tags } = useParams();
+  const colors = tags.split(',');
+
   return (
     <ul className="list-group">
       {colors.map((color) => (
-        <ColorListItem key={color} color={color} />
+        <ColorListItem key={color} color={capitalizeFirstLetter(color)} />
       ))}
     </ul>
   );
-};
-
-ColorList.propTypes = {
-  colors: PropTypes.array.isRequired,
 };
 
 export default ColorList;

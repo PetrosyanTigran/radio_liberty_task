@@ -4,7 +4,7 @@
   const TAG_BASE = '#tags=';
 
   window.location.href = BASE_CASE;
-  const currentHash = location.hash || EMPTY_TEMPLATE;
+  const currentHash = window.location.hash || EMPTY_TEMPLATE;
 
   addItemListener();
 
@@ -47,9 +47,9 @@
       if (color === '') {
         alert('Cannot accept an empty string, please enter a value.');
       } else {
-        location.hash.endsWith(',')
-          ? (location.hash = `${location.hash}${color}`)
-          : (location.hash = `${location.hash},${color}`);
+        window.location.hash.endsWith(',')
+          ? (window.location.hash = `${window.location.hash}${color}`)
+          : (window.location.hash = `${window.location.hash},${color}`);
       }
       input.value = '';
     });
@@ -57,7 +57,7 @@
 
   function removeItemListener(li) {
     li.addEventListener('click', function () {
-      location.hash = `${TAG_BASE}${location.hash
+      window.location.hash = `${TAG_BASE}${window.location.hash
         .replace(TAG_BASE, '')
         .split(',')
         .filter((el) => el !== li.innerHTML)

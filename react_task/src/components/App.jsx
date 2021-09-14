@@ -1,16 +1,17 @@
 import ColorList from './ColorList';
 import AddColorItem from './AddColorItem';
-import { useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 const App = () => {
-  const [colors, setColors] = useState(['black', 'white', 'cherry']);
   return (
     <div
       className="card border-primary mb-3"
-      style={{ margin: '25rem auto 0 auto', maxWidth: '400px' }}
+      style={{ margin: '8rem auto 0 auto', maxWidth: '400px' }}
     >
       <AddColorItem />
-      <ColorList colors={colors} />
+      <Switch>
+        <Route path="/tags=:tags" children={<ColorList />} />
+      </Switch>
     </div>
   );
 };
