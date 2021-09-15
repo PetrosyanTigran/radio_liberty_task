@@ -1,12 +1,20 @@
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router';
+import { capitalizeFirstLetter } from '../helpers';
 
 const ColorListItem = ({ color }) => {
+  const history = useHistory();
+
+  const onItemRemoved = (color) => {
+    history.replace(`${history.location.pathname.replace(color, '')}`);
+  };
+
   return (
     <li
       className="list-group-item list-group-item-action"
-      onClick={() => console.log(`Clicked ${color}`)}
+      onClick={() => onItemRemoved(color)}
     >
-      {color}
+      {capitalizeFirstLetter(color)}
     </li>
   );
 };

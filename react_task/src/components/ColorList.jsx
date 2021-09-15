@@ -1,6 +1,6 @@
 import ColorListItem from './ColorListItem';
 import { useParams } from 'react-router-dom';
-import { capitalizeFirstLetter } from '../helpers';
+import { generateRandomKey } from '../helpers';
 
 const ColorList = () => {
   const { tags } = useParams();
@@ -9,7 +9,7 @@ const ColorList = () => {
   return (
     <ul className="list-group">
       {colors.map((color) => (
-        <ColorListItem key={color} color={capitalizeFirstLetter(color)} />
+        <ColorListItem key={generateRandomKey()} color={color} />
       ))}
     </ul>
   );

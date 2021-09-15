@@ -1,6 +1,7 @@
 import ColorList from './ColorList';
 import AddColorItem from './AddColorItem';
 import { Switch, Route } from 'react-router-dom';
+import '../app.css';
 
 const App = () => {
   return (
