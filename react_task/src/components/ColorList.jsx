@@ -8,6 +8,7 @@ const ColorList = () => {
   return (
     <ul className="list-group">
       {colors.map((color, idx) => (
+        //Usually some id goes for the key, but in my case index is the best solution
         <ColorListItem key={idx} color={color} />
       ))}
     </ul>

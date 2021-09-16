@@ -21,8 +21,6 @@ const AddColorItem = () => {
         type="text"
         className="form-control"
         placeholder="Type the color you like..."
-        aria-label="Type the color you like..."
-        aria-describedby="button-addon2"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />

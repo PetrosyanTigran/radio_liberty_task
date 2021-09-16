@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router';
 
 const ColorListItem = ({ color }) => {
   const history = useHistory();
-  let { tags } = useParams();
+  const { tags } = useParams();
 
   const onItemRemoved = (color) => {
     const filteredTags = tags
