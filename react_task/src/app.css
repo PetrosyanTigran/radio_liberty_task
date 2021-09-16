@@ -1,5 +1,14 @@
+.central_container {
+  margin: 8rem auto 0 auto;
+  max-width: 400px;
+}
+
 ul {
   text-align: center;
+}
+
+li {
+  text-transform: capitalize;
 }
 
 li:hover {

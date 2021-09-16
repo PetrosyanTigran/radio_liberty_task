@@ -1,6 +1,5 @@
 import ColorListItem from './ColorListItem';
 import { useParams } from 'react-router-dom';
-import { generateRandomKey } from '../helpers';
 
 const ColorList = () => {
   const { tags } = useParams();
@@ -8,8 +7,8 @@ const ColorList = () => {
 
   return (
     <ul className="list-group">
-      {colors.map((color) => (
-        <ColorListItem key={generateRandomKey()} color={color} />
+      {colors.map((color, idx) => (
+        <ColorListItem key={idx} color={color} />
       ))}
     </ul>
   );

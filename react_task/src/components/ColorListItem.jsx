@@ -1,26 +1,33 @@
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router';
-import { capitalizeFirstLetter } from '../helpers';
+import { useHistory, useParams } from 'react-router';
 
 const ColorListItem = ({ color }) => {
   const history = useHistory();
+  let { tags } = useParams();
 
   const onItemRemoved = (color) => {
-    history.replace(`${history.location.pathname.replace(color, '')}`);
+    const filteredTags = tags
+      .split(',')
+      .filter((el) => el !== color)
+      .join(',');
+
+    history.replace(`${history.location.pathname.replace(tags, filteredTags)}`);
   };
+
+  if (!color) return null;
 
   return (
     <li
       className="list-group-item list-group-item-action"
       onClick={() => onItemRemoved(color)}
     >
-      {capitalizeFirstLetter(color)}
+      {color}
     </li>
   );
 };
 
 ColorListItem.propTypes = {
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
 
 export default ColorListItem;
