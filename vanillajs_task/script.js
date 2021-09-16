@@ -33,6 +33,9 @@
 
       const textNode = document.createTextNode(tagList[i]);
       listItem.appendChild(textNode);
+      if (listItem.innerHTML === '') {
+        listItem.classList.add('removed');
+      }
       list.appendChild(listItem);
     }
   }
@@ -43,7 +46,7 @@
 
     submit.addEventListener('click', function (e) {
       e.preventDefault();
-      const color = input?.value.trim();
+      const color = input?.value.trim().toLowerCase();
       if (color === '') {
         alert('Cannot accept an empty string, please enter a value.');
       } else {
